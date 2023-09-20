@@ -1,1 +1,12 @@
-<p>restaurant-list works!</p>
+<p>restaurant-list works!!!</p>
+<h2>TEST</h2>
+
+<ul>
+    <li *ngFor="let restaurant of restaurants">
+      <h2>{{ restaurant.name }}</h2>
+      <p>Legal Name: {{ restaurant.legalName }}</p>
+      <p>Address: {{ restaurant.address.formattedAddress }}</p>
+      <p>Status: {{ restaurant.status }}</p>
+    </li>
+  </ul>
+  

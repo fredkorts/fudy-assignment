@@ -2,10 +2,17 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RestaurantListComponent } from './restaurant-list.component';
 
-const routes: Routes = [{ path: '', component: RestaurantListComponent }];
+const routes: Routes = [
+  {
+    path: '', 
+    component: RestaurantListComponent
+  }
+  // ... other routes specific to this module
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class RestaurantListRoutingModule { }
+
