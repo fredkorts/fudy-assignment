@@ -38,7 +38,20 @@ export class RestaurantListComponent implements OnInit {
   }
 
   onPageChange(event: any): void {
-    // Your logic here
-    console.log('Page changed!', event);
+    const newPage: number = event;
+    
+    this.restaurantService.getRestaurants(newPage, this.meta.take).subscribe(response => {
+      this.restaurants = response.data;
+      this.meta = response.meta;
+    });
+  } 
+  
+  onItemsPerPageChange(newTake: number): void {
+    this.meta.take = newTake;
+    this.restaurantService.getRestaurants(this.meta.page, newTake).subscribe(response => {
+      this.restaurants = response.data;
+      this.meta = response.meta;
+    });
   }
+  
 }
