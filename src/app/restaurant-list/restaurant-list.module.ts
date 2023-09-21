@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 import { RestaurantListRoutingModule } from './restaurant-list-routing.module';
 import { RestaurantListComponent } from './restaurant-list.component';
+import { CustomPaginatorComponent } from '../custom-paginator/custom-paginator.component';
 
 
 @NgModule({
   declarations: [
-    RestaurantListComponent
+    RestaurantListComponent,
+    CustomPaginatorComponent
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
-    RestaurantListRoutingModule
+    RestaurantListRoutingModule,
+    TableModule,
+    ButtonModule,
   ]
 })
 export class RestaurantListModule { }

@@ -1,0 +1,6 @@
+<div class="paginator-container">
+    <button (click)="previousPage()" [disabled]="!pageInfo.hasPreviousPage">Previous</button>
+    <span>Page {{ pageInfo.page }} of {{ pageInfo.pageCount }}</span>
+    <button (click)="nextPage()" [disabled]="!pageInfo.hasNextPage">Next</button>
+</div>
+  

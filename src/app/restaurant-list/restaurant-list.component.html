@@ -1,12 +1,27 @@
-<p>restaurant-list works!!!</p>
-<h2>TEST</h2>
+<pre>{{ meta | json }}</pre>
 
-<ul>
-    <li *ngFor="let restaurant of restaurants">
-      <h2>{{ restaurant.name }}</h2>
-      <p>Legal Name: {{ restaurant.legalName }}</p>
-      <p>Address: {{ restaurant.address.formattedAddress }}</p>
-      <p>Status: {{ restaurant.status }}</p>
-    </li>
-  </ul>
+<p-table 
+  [value]="restaurants" 
+  dataKey="name" 
+  [tableStyle]="{ 'min-width': '60rem' }">
   
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Address</th>
+          <th>Website</th>
+          <th style="width: 5rem"></th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-restaurant>
+      <tr>
+          <td>{{ restaurant.name }}</td>
+          <td>{{ restaurant.status }}</td>
+          <td>{{ restaurant.address.formattedAddress }}</td>
+          <td>{{ restaurant.website }}</td>
+          <td><button type="button" pButton pRipple icon="pi pi-plus" [routerLink]="['/restaurant', restaurant.id, 'manager']">Add Manager</button></td>
+      </tr>
+  </ng-template>
+</p-table>
+<app-custom-paginator [pageInfo]="meta" (pageChange)="onPageChange($event)"></app-custom-paginator>
