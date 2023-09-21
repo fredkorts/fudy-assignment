@@ -1,6 +1,6 @@
 <div class="paginator-container">
-    <button (click)="goToFirstPage()" [disabled]="pageInfo.page === 1">First</button>
-    <button (click)="previousPage()" [disabled]="!pageInfo.hasPreviousPage">Previous</button>
+    <button class="btn first" (click)="gotoPage(1)" [disabled]="pageInfo.page === 1">First</button>
+    <button class="btn previous" (click)="gotoPage(pageInfo.page - 1)" [disabled]="!pageInfo.hasPreviousPage">Previous</button>
     <ng-container *ngFor="let pageNum of pageNumbers; let i = index;">
         <ng-container *ngIf="i === 0 || pageNum - pageNumbers[i - 1] === 1">
             <button 
@@ -19,8 +19,8 @@
         </ng-container>
     </ng-container>
     <span>Page {{ pageInfo.page }} of {{ pageInfo.pageCount }}</span>
-    <button (click)="nextPage()" [disabled]="!pageInfo.hasNextPage">Next</button>
-    <button (click)="goToLastPage()" [disabled]="pageInfo.page === pageInfo.pageCount">Last</button>
+    <button class="btn next" (click)="gotoPage(pageInfo.page + 1)" [disabled]="!pageInfo.hasNextPage">Next</button>
+    <button class="btn last" (click)="gotoPage(pageInfo.pageCount)" [disabled]="pageInfo.page === pageInfo.pageCount">Last</button>
     <select (change)="onItemsPerPageChange($event)">
         <option value="10">10</option>
         <option value="20">20</option>

@@ -29,18 +29,19 @@ export class RestaurantListComponent implements OnInit {
   constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit(): void {
-    this.restaurantService.getRestaurants(1, 10).subscribe(response => {
+    this.restaurantService.getRestaurants(1, 10).subscribe((response: { data: any[]; meta: PaginatorResponse; }) => {
       this.restaurants = response.data;
       this.meta = response.meta;
       console.log(this.restaurants);
       console.log(this.meta);
+      console.log(response);
     });
   }
 
   onPageChange(event: any): void {
     const newPage: number = event;
     
-    this.restaurantService.getRestaurants(newPage, this.meta.take).subscribe(response => {
+    this.restaurantService.getRestaurants(newPage, this.meta.take).subscribe((response: { data: any[]; meta: PaginatorResponse; }) => {
       this.restaurants = response.data;
       this.meta = response.meta;
     });
@@ -48,7 +49,7 @@ export class RestaurantListComponent implements OnInit {
   
   onItemsPerPageChange(newTake: number): void {
     this.meta.take = newTake;
-    this.restaurantService.getRestaurants(this.meta.page, newTake).subscribe(response => {
+    this.restaurantService.getRestaurants(this.meta.page, newTake).subscribe((response: { data: any[]; meta: PaginatorResponse; }) => {
       this.restaurants = response.data;
       this.meta = response.meta;
     });
