@@ -25,34 +25,38 @@ export class RestaurantListComponent implements OnInit {
     hasPreviousPage: false,
     hasNextPage: false
   };
+  
+  statusOptions = [
+    {label: 'All', value: null},
+    {label: 'ACTIVE', value: 'ACTIVE'},
+    {label: 'INACTIVE', value: 'INACTIVE'}
+  ];
+  selectedStatus: 'ACTIVE' | 'INACTIVE' | null = null;
 
   constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit(): void {
-    this.restaurantService.getRestaurants(1, 10).subscribe((response: { data: any[]; meta: PaginatorResponse; }) => {
-      this.restaurants = response.data;
-      this.meta = response.meta;
-      console.log(this.restaurants);
-      console.log(this.meta);
-      console.log(response);
-    });
+    this.fetchRestaurants();
   }
 
   onPageChange(event: any): void {
     const newPage: number = event;
-    
-    this.restaurantService.getRestaurants(newPage, this.meta.take).subscribe((response: { data: any[]; meta: PaginatorResponse; }) => {
-      this.restaurants = response.data;
-      this.meta = response.meta;
-    });
-  } 
-  
+    this.fetchRestaurants(newPage, this.meta.take);
+  }
+
   onItemsPerPageChange(newTake: number): void {
     this.meta.take = newTake;
-    this.restaurantService.getRestaurants(this.meta.page, newTake).subscribe((response: { data: any[]; meta: PaginatorResponse; }) => {
+    this.fetchRestaurants(this.meta.page, newTake);
+  }
+
+  onStatusFilterChange(): void {
+    this.fetchRestaurants(this.meta.page, this.meta.take);
+  }
+
+  private fetchRestaurants(page: number = 1, take: number = 10): void {
+    this.restaurantService.getRestaurants(page, take, this.selectedStatus || undefined).subscribe((response: { data: any[]; meta: PaginatorResponse; }) => {
       this.restaurants = response.data;
       this.meta = response.meta;
     });
   }
-  
 }
