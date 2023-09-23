@@ -27,7 +27,7 @@ export class RestaurantListComponent implements OnInit {
   };
   
   statusOptions = [
-    {label: 'All', value: null},
+    {label: 'Status', value: null},
     {label: 'ACTIVE', value: 'ACTIVE'},
     {label: 'INACTIVE', value: 'INACTIVE'}
   ];

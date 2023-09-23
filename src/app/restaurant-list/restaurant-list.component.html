@@ -6,29 +6,28 @@
   
   <ng-template pTemplate="header">
       <tr>
-          <th>Name</th>
-          <th>
-            Status
+          <th class="tbl name">Name</th>
+          <th class="tbl status">
             <p-dropdown [options]="statusOptions" [(ngModel)]="selectedStatus" (onChange)="onStatusFilterChange()" placeholder="Select a Status"></p-dropdown>
           </th>
-          <th>Address</th>
-          <th>Website</th>
-          <th style="width: 5rem"></th>
+          <th class="tbl address">Address</th>
+          <th class="tbl website">Website</th>
+          <th class="tbl manager" style="width: 5rem"></th>
       </tr>
   </ng-template>
   <ng-template pTemplate="body" let-restaurant>
       <tr>
-          <td>{{ restaurant.name }}</td>
-          <td>
+          <td class="tbl name">{{ restaurant.name }}</td>
+          <td class="tbl status">
             <span class="status" [ngClass]="{
               'valid-status': restaurant.status === 'ACTIVE', 
               'invalid-status': restaurant.status === 'INACTIVE'}">
               {{ restaurant.status }}
             </span>
           </td>
-          <td>{{ restaurant.address.formattedAddress }}</td>
-          <td>{{ restaurant.website }}</td>
-          <td><button class="manager-btn" type="button" pButton pRipple icon="pi pi-user" [routerLink]="['/restaurant', restaurant.id, 'manager']"></button></td>
+          <td class="tbl address">{{ restaurant.address.formattedAddress }}</td>
+          <td class="tbl website">{{ restaurant.website }}</td>
+          <td class="tbl manager"><button class="manager-btn" type="button" pButton pRipple icon="pi pi-user" [routerLink]="['/restaurant', restaurant.id, 'manager']"></button></td>
       </tr>
   </ng-template>
 </p-table>

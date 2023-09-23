@@ -1,3 +1,20 @@
+.tbl {
+    &.name {
+        width: 30%;
+    }
+    &.status {
+        width: 10%;
+    }
+    &.address {
+        width: 30%;
+    }
+    &.website {
+        width: 25%;
+    }
+    &.manager {
+        width: 5%;
+    }
+}
 .status {
     color: white;
     padding: 5px;
