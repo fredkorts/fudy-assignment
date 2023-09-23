@@ -1,0 +1,22 @@
+.status {
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+.valid-status {
+    background: green;
+}
+.invalid-status {
+    background: red;
+}
+.manager-btn {
+    width: 25px;
+    height: 25px;
+    background: none;
+    border: 0px solid black;
+    color: grey;
+    &:hover {
+        color: blue;
+        background: none;
+    }
+}

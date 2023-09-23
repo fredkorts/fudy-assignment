@@ -1,30 +1,39 @@
 <div class="paginator-container">
-    <button class="btn first" (click)="gotoPage(1)" [disabled]="pageInfo.page === 1">First</button>
-    <button class="btn previous" (click)="gotoPage(pageInfo.page - 1)" [disabled]="!pageInfo.hasPreviousPage">Previous</button>
-    <ng-container *ngFor="let pageNum of pageNumbers; let i = index;">
-        <ng-container *ngIf="i === 0 || pageNum - pageNumbers[i - 1] === 1">
-            <button 
-              [class.active]="pageInfo.page === pageNum" 
-              (click)="gotoPage(pageNum)">
-                {{ pageNum }}
-            </button>
+    <div class="paginator-buttons">
+    <button icon="pi pi-backward" class="btn first" (click)="gotoPage(1)" [disabled]="pageInfo.page === 1"><i class="pi pi-fast-backward btn-icon"></i></button>
+    <button icon="pi pi-step-backward-alt" class="btn previous" (click)="gotoPage(pageInfo.page - 1)" [disabled]="!pageInfo.hasPreviousPage"><i class="pi pi-step-backward-alt btn-icon"></i></button>
+    <div class="container">
+      <div class="paginator-num-container">
+        <ng-container *ngFor="let pageNum of pageNumbers; let i = index;">
+          <ng-container *ngIf="i === 0 || pageNum - pageNumbers[i - 1] === 1">
+              <button 
+                [class.active]="pageInfo.page === pageNum"
+                class="paginator-num"
+                (click)="gotoPage(pageNum)">
+                  {{ pageNum }}
+              </button>
+          </ng-container>
+          <ng-container *ngIf="pageNum - pageNumbers[i - 1] > 1">
+              ... 
+              <button 
+                [class.active]="pageInfo.page === pageNum" 
+                class="paginator-num"
+                (click)="gotoPage(pageNum)">
+                  {{ pageNum }}
+              </button>
+          </ng-container>
         </ng-container>
-        <ng-container *ngIf="pageNum - pageNumbers[i - 1] > 1">
-            ... 
-            <button 
-              [class.active]="pageInfo.page === pageNum" 
-              (click)="gotoPage(pageNum)">
-                {{ pageNum }}
-            </button>
-        </ng-container>
-    </ng-container>
-    <span>Page {{ pageInfo.page }} of {{ pageInfo.pageCount }}</span>
-    <button class="btn next" (click)="gotoPage(pageInfo.page + 1)" [disabled]="!pageInfo.hasNextPage">Next</button>
-    <button class="btn last" (click)="gotoPage(pageInfo.pageCount)" [disabled]="pageInfo.page === pageInfo.pageCount">Last</button>
+      </div>
+      <div class="page-status">Page {{ pageInfo.page }} of {{ pageInfo.pageCount }}</div>
+    </div>
+    <button icon="pi pi-step-forward-alt" class="btn next" (click)="gotoPage(pageInfo.page + 1)" [disabled]="!pageInfo.hasNextPage"><i class="pi pi-step-forward-alt btn-icon"></i></button>
+    <button icon="pi pi-forward" class="btn last" (click)="gotoPage(pageInfo.pageCount)" [disabled]="pageInfo.page === pageInfo.pageCount"><i class="pi pi-forward btn-icon"></i></button>
     <select (change)="onItemsPerPageChange($event)">
         <option value="10">10</option>
         <option value="20">20</option>
         <option value="30">30</option>
-      </select>      
+    </select>      
+    </div>
+    
 </div>
   
