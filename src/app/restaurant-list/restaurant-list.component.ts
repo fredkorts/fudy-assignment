@@ -46,11 +46,11 @@ export class RestaurantListComponent implements OnInit {
 
   onItemsPerPageChange(newTake: number): void {
     this.meta.take = newTake;
-    this.fetchRestaurants(this.meta.page, newTake);
+    this.fetchRestaurants(1, newTake);
   }
 
   onStatusFilterChange(): void {
-    this.fetchRestaurants(this.meta.page, this.meta.take);
+    this.fetchRestaurants(1, this.meta.take);
   }
 
   private fetchRestaurants(page: number = 1, take: number = 10): void {
