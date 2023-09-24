@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { ManagerFormRoutingModule } from './manager-form-routing.module';
 import { ManagerFormComponent } from './manager-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MessageModule } from 'primeng/message';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ManagerFormRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MessageModule,
+    ButtonModule,
+    InputTextModule
   ]
 })
 export class ManagerFormModule { }

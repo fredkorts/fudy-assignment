@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        #email, #password {
+            padding: 0.5rem;
+            font-size: 14px;
+        }
+        .p-element {
+            padding: 0.5rem;
+        }
+    }
+}
