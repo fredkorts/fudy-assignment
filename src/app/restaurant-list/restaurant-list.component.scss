@@ -1,5 +1,6 @@
 .tbl {
     &.name {
+        font-family: 'CeraProMedium', Arial;
         width: 30%;
     }
     &.status {
@@ -10,6 +11,11 @@
     }
     &.website {
         width: 25%;
+        a {
+            &:hover {
+                color: #feae1c;
+            }
+        }
     }
     &.manager {
         width: 5%;
@@ -40,7 +46,7 @@ td.tbl {
     border: 0px solid black;
     color: grey;
     &:hover {
-        color: blue;
+        color: #feae1c;
         background: none;
     }
 }

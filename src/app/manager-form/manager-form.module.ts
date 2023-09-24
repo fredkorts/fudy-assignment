@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ManagerFormRoutingModule } from './manager-form-routing.module';
 import { ManagerFormComponent } from './manager-form.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { ManagerFormComponent } from './manager-form.component';
   ],
   imports: [
     CommonModule,
-    ManagerFormRoutingModule
+    ManagerFormRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class ManagerFormModule { }
