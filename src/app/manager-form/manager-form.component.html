@@ -1,14 +1,18 @@
 <div class="container">
+    <p-message  *ngIf="success" class="statusMessage" text="Successfully added manager!" severity="success"></p-message>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="p-field">
-            <input type="email" id="email" formControlName="email" pInputText class="w-full mb-3" placeholder="E-mail">
-            <small *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched" id="username-help" class="p-error">Email is invalid</small>
-            <small *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched" id="username-help" class="p-error">Email is required</small>
+        <h2>Add Manager</h2>
+        <div class="p-field form">
+            <input type="email" id="email" formControlName="email" pInputText required class="w-full mb-3" placeholder="E-mail">
+            <input type="password" id="password" formControlName="password" pInputText required class="w-full mb-3" placeholder="Password">
         </div>
       
-        <div class="p-field">
-            <input type="password" id="password" formControlName="password" pInputText class="w-full mb-3" placeholder="Password">
-            <small *ngIf="form.get('password')?.errors?.['invalidPassword'] && form.get('password')?.touched" id="username-help" class="p-error">Password must be at least 10 characters, include one capital letter, at least 1 number and 1 special character.</small>
+        <div class="p-field errors">
+            <ul>
+                <li *ngIf="form.get('password')?.errors?.['invalidPassword'] && form.get('password')?.touched" id="username-help" class="p-error">Password must be at least 10 characters, include one capital letter, at least 1 number and 1 special character.</li>
+                <li *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched" id="username-help" class="p-error">Email is invalid</li>
+                <li *ngIf="form.get('email')?.errors?.['required'] && form.get('email')?.touched" id="username-help" class="p-error">Email is required</li>
+            </ul>
         </div>
       
         <div class="p-field-button">

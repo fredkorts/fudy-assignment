@@ -13,6 +13,7 @@ export class ManagerFormComponent {
 
   form: FormGroup;
   restaurantId: string = ''; 
+  success: boolean = false;
 
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private route: ActivatedRoute) {
     this.form = this.fb.group({
@@ -48,7 +49,10 @@ export class ManagerFormComponent {
         restaurant: this.restaurantId,
         data: payload
       });
-      this.navigateHome();
+      this.success = true;
+      setTimeout(() => {
+        this.navigateHome();
+      }, 2500);
     }
   }
   

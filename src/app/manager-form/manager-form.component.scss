@@ -1,14 +1,33 @@
 .container {
     display: flex;
+    width: 100%;
+    height: 100vh;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+
+    .statusMessage {
+        position: fixed;
+        top: 15px;
+    }
 
     form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background: #e8e8e8;
+        border-radius: 5px;
+        width: 500px;
+        padding: 1rem;
+
+        h2 {
+            font-family: 'CeraProMedium', Arial;
+        }
+
+        input {
+            margin-bottom: 0.5rem;
+        }
 
         #email, #password {
             padding: 0.5rem;
@@ -16,6 +35,16 @@
         }
         .p-element {
             padding: 0.5rem;
+        }
+        .p-field {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .errors {
+            font-family: 'CeraProMedium', Arial;
+            font-size: 10px;
+            color: black;
         }
     }
 }

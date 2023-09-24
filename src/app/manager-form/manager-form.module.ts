@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MessageModule } from 'primeng/message';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
     MessageModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    MessagesModule
   ]
 })
 export class ManagerFormModule { }

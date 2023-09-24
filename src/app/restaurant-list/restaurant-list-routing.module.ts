@@ -7,7 +7,6 @@ const routes: Routes = [
     path: '', 
     component: RestaurantListComponent
   }
-  // ... other routes specific to this module
 ];
 
 @NgModule({
