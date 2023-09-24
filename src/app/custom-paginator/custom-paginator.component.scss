@@ -25,7 +25,7 @@
             justify-content: center;
             align-items: center;
             font-size: 12px;
-            color: #2563eb;
+            font-family: 'CeraProLight', Arial;
         }
 
         .btn {
@@ -49,6 +49,7 @@
         margin-top: 1.15em;
         background: none;
         border: 0px solid black;
+        font-family: 'CeraProLight', Arial;
         &:hover {
             cursor: pointer;
         }

@@ -26,7 +26,12 @@
             </span>
           </td>
           <td class="tbl address">{{ restaurant.address.formattedAddress }}</td>
-          <td class="tbl website"><a [href]="restaurant.website">{{ restaurant.website }}</a></td>
+          <td class="tbl website">
+            <a *ngIf="restaurant.website" [href]="restaurant.website">{{ restaurant.website }} 
+                <i class="pi pi-external-link" style="font-size: 11px; margin: 5px 0 0 5px;"></i>
+            </a>
+          </td>
+        
           <td class="tbl manager"><button class="manager-btn" type="button" pButton pRipple icon="pi pi-user" [routerLink]="['/restaurant', restaurant.id, 'manager']"></button></td>
       </tr>
   </ng-template>
